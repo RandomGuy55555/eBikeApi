@@ -1,0 +1,17 @@
+version: '1.0'
+
+services:
+
+  postgresDocker:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      #POSTGRES_DB: ebikedb
+    ports:
+      - 5432:5432
+    volumes: 
+            - ./sqlScripts/eBikeDbInitScript.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+
+#volumes:
+  #pgdata:
